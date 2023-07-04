@@ -1,0 +1,38 @@
+{
+  "name": "hedera-hashgraph-services-for-beginner",
+  "version": "1.0.0",
+  "description": "this project is a Node.js based application that provides a set of scripts to interact with the Hedera Hashgraph network. The scripts are designed to perform various actions such as creating new accounts, transferring HBAR, querying account information, creating and managing fungible tokens, multi-signature transactions, consensus, scheduling transactions, and interacting with smart contracts. The project uses the @hashgraph/sdk and dotenv Node.js modules as dependencies.",
+  "main": "index.js",
+  "scripts": {
+    "createNewAccounts": "node scripts/accounts/createAccounts.js",
+    "transferHBAR": "node scripts/accounts/transferHBAR.js",
+    "getAccountBalance": "node scripts/accounts/getAccountBalance.js",
+    "queryAccountInfo": "node scripts/accounts/queryAccountInfo.js",
+    "createToken": "node scripts/fungibleToken/createToken.js",
+    "associateAccounts": "node scripts/fungibleToken/associateTokenWithAccounts.js",
+    "increaseTokenSupply": "node scripts/fungibleToken/increaseTokenSupply.js",
+    "transferToken": "node scripts/fungibleToken/transferToken.js",
+    "transferTokenToMultipleAccounts": "node scripts/fungibleToken/transferTokenToMultipleAccounts.js",
+    "pauseToken": "node scripts/fungibleToken/pauseToken.js",
+    "unPauseToken": "node scripts/fungibleToken/unPauseToken.js",
+    "queryToken": "node scripts/fungibleToken/queryToken.js",
+    "multiSign": "node scripts/multiSign/multiSign.js",
+    "consensus": "node scripts/consensus/consensus.js",
+    "scheduleTxn": "node scripts/scheduleTxn/scheduleTxn.js",
+    "smartContract": "node scripts/smartContractService/scs.js",
+    "createTokenKYC": "node scripts/fungibleTokenKYC/createTokenKYC.js",
+    "queryTokenKYC": "node scripts/fungibleTokenKYC/queryTokenKYC.js",
+    "associateTokenWithAccountsKYC": "node scripts/fungibleTokenKYC/associateTokenWithAccountsKYC",
+    "transferTokenKYC": "node scripts/fungibleTokenKYC/transferTokenKYC",
+    "flagKYCToken": "node scripts/fungibleTokenKYC/flagKYCToken.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AlapnX",
+  "license": "ISC",
+  "dependencies": {
+    "@hashgraph/sdk": "^2.24.0",
+    "dotenv": "^16.0.3",
+    "moment": "^2.29.4",
+    "web3": "^1.9.0"
+  }
+}
