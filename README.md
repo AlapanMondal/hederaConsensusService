@@ -29,11 +29,23 @@ $ pnpm run start:dev keymanager
 
 ### Using curl
 ```mermaid
-  graph TD;
-      A-->B;
-      A-->C;
-      B-->D;
-      C-->D;
+graph TD
+    subgraph "api-gateway"
+        A[HTTP Request] -->|gRPC Request| B[keys.controller.ts]
+        B[keys.controller.ts] -->|gRPC Request| C[keys.service.ts]
+        C[keys.service.ts] -->|gRPC Request| D["KeyManager Service"]
+        D["KeyManager Service"] -->|gRPC Response| C[keys.service.ts]
+        C[keys.service.ts] -->|gRPC Response| B[keys.controller.ts]
+        B[keys.controller.ts] -->|HTTP Response| A[HTTP Client]
+    end
+
+    subgraph "keymanager"
+        E["KeyManager Service"] -->|gRPC Request| F[keys.controller.ts]
+        F[keys.controller.ts] -->|gRPC Request| G[keys.service.ts]
+        G[keys.service.ts] -->|gRPC Response| F[keys.controller.ts]
+        F[keys.controller.ts] -->|gRPC Response| E["KeyManager Service"]
+    end
+
 ```
 
 To test the APIs implemented in the Nest.js application using `curl`, follow these steps. Ensure that `api-gateway` application is running at the appropriate address and port (e.g., `http://localhost:3000`).
